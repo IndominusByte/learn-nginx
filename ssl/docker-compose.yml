@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  site:
+  nginx:
     image: nginx:stable-alpine
     restart: unless-stopped
     ports:
@@ -19,4 +19,3 @@ services:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-
