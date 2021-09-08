@@ -13,4 +13,4 @@ fi
 
 htpasswd -bBc /etc/nginx/.htpasswd $username $password
 
-nginx -g 'daemon off;'
+exec nginx -g "daemon off;"
