@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8001:80"
+    environment:
+      - username=${username}
+      - password=${password}
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
